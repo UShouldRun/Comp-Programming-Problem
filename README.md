@@ -322,3 +322,18 @@ The **min-cost max-flow** algorithm chooses warehouse 4 because it provides the 
 ---
 
 **Note:** The graph is **directed**, so paths must follow edge directions. The solution uses min-cost max-flow (successive shortest paths) to maximize the number of stores served while minimizing total delivery cost.
+
+---
+
+## Tests
+
+The first 5 tests served to address the algorithm, in simple and immediate cases, where it was going wrong.
+They were hand crafted and thats where the solution came from.
+The following 5 tests were done by `test.cpp` with input parameters and then solved by hand to reach its solution
+and then compared to the output of the program.
+With confidence in the algorithm, the following 5 test cases are for other solutions to be compared with the current on
+more complex graphs.
+
+I thought of trying to make a test generator from a given input solution, however, it seemed to complex and prone to failure
+in test cases. Because this problem is, while with some complexity, straight forward, I did opt to just hand craft most test
+cases.
