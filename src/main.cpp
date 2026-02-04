@@ -100,7 +100,7 @@ Graph read(
   std::cin >> s_vertices >> s_edges;
   std::cin >> s_warehouses >> s_stores;
 
-  Graph graph = graph_init(s_vertices + 1);
+  Graph graph = graph_init(s_vertices);
   for (u32 i = 0; i < s_edges; i++) {
     u32 v = 0, w = 0;
     i32 cost = 0, time = 0;
@@ -278,6 +278,11 @@ u32 graph_size(const Graph& g) {
 std::vector<Weight> dijkstra(const Graph& graph, const u32 start) {
   std::vector<Weight> dist(graph_size(graph) + 1, WEIGHT_MAX);
   dist[start] = WEIGHT_ZERO;
+
+  if (start >= dist.size()) {
+    std::cerr << "ERROR: start " << start << " >= dist.size " << dist.size() << std::endl;
+    exit(1);
+  }
 
   auto comp = [](const std::pair<u32, Weight>& a, const std::pair<u32, Weight>& b) -> bool {
     return a.second > b.second; // min heap comparison
